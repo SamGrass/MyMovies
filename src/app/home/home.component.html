@@ -1,1 +1,8 @@
 <p>home works!</p>
+
+  @for (movie of movies; track $index) {
+    <app-movie-card [movie]="movie"></app-movie-card>
+  } @empty {
+    <p>Non ci sono film</p>
+  }
+
