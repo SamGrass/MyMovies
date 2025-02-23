@@ -9,5 +9,5 @@ import { Movie } from '../model/movies';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  movies: Movie[] = [];
+  favMovies: Movie[] = [];
 }

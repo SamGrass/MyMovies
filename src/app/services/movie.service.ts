@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ApiMovieResponse, Movie } from '../model/movies';
+import { ApiMovieResponse } from '../model/movies';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class MovieService {
 
   constructor(private http: HttpClient) {}
 
-
+  // metodo per ottenere i film dall'API
   getMovies(): Observable<ApiMovieResponse> {
     return this.http.get<ApiMovieResponse>(`${this.apiUrl}?api_key=${this.apiKey}&language=it-IT&page=1`);
   }
