@@ -1,16 +1,17 @@
-@if (allMovies) {
+
   <div class="container">
     <div class="row row-cols-1 row-cols-md-4 g-4">
 
       @for (movie of allMovies; track movie.id) {
         <div class="col">
-          <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"  alt="...">
+          <img [src]=" movie.poster_path ? 'https://image.tmdb.org/t/p/w500/' + movie.poster_path : 'no-image.jpg'"  alt="...">
           <div>
             <h5>{{movie.title}}</h5>
+
           </div>
         </div>
       }
     </div>
   </div>
-}
+
 
