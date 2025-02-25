@@ -30,9 +30,27 @@ export class NewMovieComponent implements OnInit{
     this.searchMovies(searchTerm);
   }
 
+  // faccio la chiamata all'API per cercare i film filtrati
   searchMovies(movieName: string) {
     this.movieService.getMoviesByNames(movieName).subscribe((response: ApiMovieResponse) => {
       this.allMovies = response.results;
     });
+  }
+
+  // metodo per aggiungere i film ai preferiti
+  addFavMoviesToLocalStorage(movie: Movie): void {
+    const favMovies = JSON.parse(localStorage.getItem('favMovies') || '[]');
+    favMovies.push(movie);
+    localStorage.setItem('favMovies', JSON.stringify(favMovies));
+    console.log(favMovies);
+
+  }
+
+  // metodo per rimuovere i film dai preferiti
+  removeFavMoviesFromLocalStorage(movie: Movie): void {
+    let favMovies = JSON.parse(localStorage.getItem('favMovies') || '[]');
+    favMovies = favMovies.filter((storedMovie: Movie) => storedMovie.id !== movie.id);
+    localStorage.setItem('favMovies', JSON.stringify(favMovies));
+    console.log(favMovies);
   }
 }
