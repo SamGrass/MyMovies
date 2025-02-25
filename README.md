@@ -1,7 +1,12 @@
-Per provare l'applicazione controllare di aver installato Node.js e Angular CLI
-aprire il terminale ed esguire
-npm install
-ng serve
+Per provare l'applicazione controllare di aver installato Node.js e Angular CLI, in caso contrario:
+
+- seguire le indicazioni su https://nodejs.org/en/download
+- inserire nel terminale npm install -g @angular/cli.
+
+Aprire il terminale ed esguire:
+
+- npm install
+- ng serve
 
 MyMovies è una webapp che permette di selezionare dei film dal catalogo fornito da TMDB (https://www.themoviedb.org/) ed aggiungerle ai propri preferiti.
 
