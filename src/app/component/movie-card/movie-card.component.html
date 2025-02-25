@@ -4,10 +4,14 @@
 
       @for (movie of allMovies; track movie.id) {
         <div class="col">
-          <img [src]=" movie.poster_path ? 'https://image.tmdb.org/t/p/w500/' + movie.poster_path : 'no-image.jpg'"  alt="...">
+          <img [src]="movie.poster_path ? 'https://image.tmdb.org/t/p/w500/' + movie.poster_path : 'no-image.jpg'" alt="...">
           <div>
             <h5>{{movie.title}}</h5>
-
+            @if (isMovieInLocalStorage(movie.id)) {
+              <button (click)="selectMovie(movie)">rimuovi dai preferiti</button>
+            } @else {
+              <button (click)="selectMovie(movie)">aggiungi ai preferiti</button>
+            }
           </div>
         </div>
       }

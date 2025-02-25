@@ -20,6 +20,7 @@ export class MovieService {
     return this.http.get<ApiMovieResponse>(`${this.apiMovieList}?api_key=${this.apiKey}&language=it-IT&page=1`);
   }
 
+  // metodo per ottenere i film filtrati dall'API
   getMoviesByNames(movieName: string): Observable<ApiMovieResponse> {
     return this.http.get<ApiMovieResponse>(`${this.apiMovieSearch}?api_key=${this.apiKey}&language=it-IT&query=${movieName}&page=1`);
   }
