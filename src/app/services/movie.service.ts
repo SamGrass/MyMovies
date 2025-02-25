@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ApiMovieResponse } from '../model/movies';
+import { ApiMovieResponse, Movie } from '../model/movies';
 
 @Injectable({
   providedIn: 'root'
@@ -25,4 +25,9 @@ export class MovieService {
     return this.http.get<ApiMovieResponse>(`${this.apiMovieSearch}?api_key=${this.apiKey}&language=it-IT&query=${movieName}&page=1`);
   }
 
+  // metodo per ottenere un film dal localStorage
+  getMovieFromLocalStorage(movieId: string): Movie | null {
+      const favMovies = JSON.parse(localStorage.getItem('favMovies') || '[]');
+      return favMovies.find((movie: Movie) => movie.id === +movieId) || null;
+    }
 }

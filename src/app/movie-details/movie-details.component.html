@@ -1,1 +1,13 @@
-<p>movie-details works!</p>
+<h1>{{ movie?.title }}</h1>
+<div class="d-flex gap-5">
+  <img class="img-fluid" [src]="movie?.poster_path ? 'https://image.tmdb.org/t/p/w500/' + movie?.poster_path : 'no-image.jpg'" alt="...">
+  <div>
+    <p>Data di rilascio: {{ movie?.release_date }}</p>
+    <p>Voto medio: {{ movie?.vote_average }}</p>
+    <p>Sinossi:</p>
+    <p>{{ movie?.overview }}</p>
+  </div>
+</div>
+
+
+
