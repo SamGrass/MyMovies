@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Movie } from '../model/movies';
 import { MovieService } from '../services/movie.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-details',
@@ -12,13 +12,18 @@ import { ActivatedRoute } from '@angular/router';
 export class MovieDetailsComponent {
   movie: Movie | null = null;
 
-  constructor(private route: ActivatedRoute, private movieService: MovieService) {}
+  constructor(private route: ActivatedRoute, private movieService: MovieService, private router : Router) {}
 
   // carico il film selezionato per id
   ngOnInit(): void {
     const movieId = this.route.snapshot.paramMap.get('id');
     if (movieId) {
       this.movie = this.movieService.getMovieFromLocalStorage(movieId);
+      if (!this.movie) {
+        this.router.navigate(['/error']);
+      }
+    } else {
+      this.router.navigate(['/error']);
     }
   }
 
