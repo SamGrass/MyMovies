@@ -1,7 +1,6 @@
-<p>home works!</p>
+<h1>I tuoi Film</h1>
 @if (favMovies.length > 0) {
-  <app-movie-card ></app-movie-card>
-
+  <app-movie-card [Movies]="favMovies" (movieRemoved)="removeFavMoviesFromLocalStorage($event)"></app-movie-card>
 } @else {
   <p>nessun film preferito</p>
 }

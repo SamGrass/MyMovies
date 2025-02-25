@@ -10,7 +10,7 @@ import { Movie } from '../../model/movies';
 export class MovieCardComponent {
 
   // ricevo l'array di film da visualizzare da new-movie.component.ts
-  @Input() allMovies: Movie[] | null = null;
+  @Input() Movies: Movie[] | null = null;
 
   // emetto l'evento per aggiungere o rimuovere i film dai preferiti
   @Output() movieSelected = new EventEmitter<Movie>();

@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row row-cols-1 row-cols-md-4 g-4">
 
-      @for (movie of allMovies; track movie.id) {
+      @for (movie of Movies; track movie.id) {
         <div class="col">
           <img [src]="movie.poster_path ? 'https://image.tmdb.org/t/p/w500/' + movie.poster_path : 'no-image.jpg'" alt="...">
           <div>

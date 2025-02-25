@@ -42,7 +42,6 @@ export class NewMovieComponent implements OnInit{
     const favMovies = JSON.parse(localStorage.getItem('favMovies') || '[]');
     favMovies.push(movie);
     localStorage.setItem('favMovies', JSON.stringify(favMovies));
-    console.log(favMovies);
 
   }
 
@@ -51,6 +50,5 @@ export class NewMovieComponent implements OnInit{
     let favMovies = JSON.parse(localStorage.getItem('favMovies') || '[]');
     favMovies = favMovies.filter((storedMovie: Movie) => storedMovie.id !== movie.id);
     localStorage.setItem('favMovies', JSON.stringify(favMovies));
-    console.log(favMovies);
   }
 }
