@@ -1,4 +1,10 @@
-<h1>Aggiungi Film</h1>
-@if (allMovies) {
-  <app-movie-card [allMovies]="allMovies"></app-movie-card>
-}
+<div class="p-2">
+
+  <h1>Aggiungi Film</h1>
+  <app-searchbar (input)="onSearchInput($event)"></app-searchbar>
+  @if (allMovies.length > 0) {
+    <app-movie-card [allMovies]="allMovies"></app-movie-card>
+  } @else {
+    <p>nessun film trovato</p>
+  }
+</div>

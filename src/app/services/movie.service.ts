@@ -9,14 +9,19 @@ import { ApiMovieResponse } from '../model/movies';
 export class MovieService {
 
   // variabili API
-  private apiUrl = 'https://api.themoviedb.org/3/discover/movie';
+  private apiMovieList = 'https://api.themoviedb.org/3/discover/movie';
   private apiKey = '2e8c51d61cce09979ab13516d65193ba';
+  private apiMovieSearch = 'https://api.themoviedb.org/3/search/movie';
 
   constructor(private http: HttpClient) {}
 
   // metodo per ottenere i film dall'API
   getMovies(): Observable<ApiMovieResponse> {
-    return this.http.get<ApiMovieResponse>(`${this.apiUrl}?api_key=${this.apiKey}&language=it-IT&page=1`);
+    return this.http.get<ApiMovieResponse>(`${this.apiMovieList}?api_key=${this.apiKey}&language=it-IT&page=1`);
+  }
+
+  getMoviesByNames(movieName: string): Observable<ApiMovieResponse> {
+    return this.http.get<ApiMovieResponse>(`${this.apiMovieSearch}?api_key=${this.apiKey}&language=it-IT&query=${movieName}&page=1`);
   }
 
 }
