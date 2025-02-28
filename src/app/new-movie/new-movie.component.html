@@ -1,7 +1,7 @@
 <div class="p-2">
 
   <h1>Aggiungi Film</h1>
-  <app-searchbar (input)="onSearchInput($event)"></app-searchbar>
+  <app-searchbar (input)="searchMovieInput($event)"></app-searchbar>
   @if (allMovies.length > 0) {
     <app-movie-card [Movies]="allMovies" (movieSelected)="addFavMoviesToLocalStorage($event)" (movieRemoved)="removeFavMoviesFromLocalStorage($event)"></app-movie-card>
   } @else {

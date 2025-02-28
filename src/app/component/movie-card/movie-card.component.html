@@ -9,8 +9,10 @@
             <h5>{{movie.title}}</h5>
             <!-- bottone per aggiungere o rimuovere dai preferiti -->
             @if (isMovieInLocalStorage(movie.id)) {
-              <button (click)="selectMovie(movie)">rimuovi dai preferiti</button>
-              <button [routerLink]="['/dettagli-film/', movie.id]">dettagli</button>
+              <div class="d-flex gap-3">
+                <button (click)="selectMovie(movie)">rimuovi dai preferiti</button>
+                <button [routerLink]="['/dettagli-film/', movie.id]">dettagli</button>
+              </div>
             } @else {
               <button (click)="selectMovie(movie)">aggiungi ai preferiti</button>
             }

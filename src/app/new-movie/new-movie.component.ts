@@ -24,10 +24,16 @@ export class NewMovieComponent implements OnInit{
   }
 
   // ricevo il valore dell'input dalla searchbar
-  onSearchInput(event: Event): void {
+  searchMovieInput(event: Event): void {
     const inputElement = event.target as HTMLInputElement;
-    const searchTerm = inputElement.value;
-    this.searchMovies(searchTerm);
+    const searchMovie = inputElement.value;
+    if (searchMovie === '') {
+      this.movieService.getMovies().subscribe((response: ApiMovieResponse )=> {
+        this.allMovies = response.results;
+      });
+    } else{
+      this.searchMovies(searchMovie);
+    }
   }
 
   // faccio la chiamata all'API per cercare i film filtrati

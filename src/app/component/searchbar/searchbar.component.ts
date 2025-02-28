@@ -9,7 +9,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class SearchbarComponent {
 
   // refres pagina per visualizzare tutti i film
-  refreshPage(): void {
+  removeFilter(): void {
     window.location.reload();
   }
 }
