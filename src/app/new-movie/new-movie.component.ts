@@ -37,7 +37,7 @@ export class NewMovieComponent implements OnInit{
   }
 
   // faccio la chiamata all'API per cercare i film filtrati
-  searchMovies(movieName: string) {
+  searchMovies(movieName: string): void {
     this.movieService.getMoviesByNames(movieName).subscribe((response: ApiMovieResponse) => {
       this.allMovies = response.results;
     });
